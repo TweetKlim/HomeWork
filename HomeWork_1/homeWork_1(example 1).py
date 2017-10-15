@@ -6,7 +6,10 @@ def arithmetic(a, b, proc):
 	elif proc == '*':
 		return a * b
 	elif proc == '/':
-		return a // b
+		if(b):
+			return a // b
+		else :
+			return "Na nol delit nelza"
 	else:
 		return 'неизвестная операция'
 		
