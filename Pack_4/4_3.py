@@ -63,14 +63,17 @@ def step():
 							
 			elif(river[i].char == 'F'):
 				move = random.randint(0, 1)
-				if(i == 0 and move == 0 or move == 0 and river[i - 1] == 'B'): move = 1
-				elif(i == length - 1 and move == 1 or move == 1 and river[i + 1] == 'B'): move = 0
-				if(i == length - 1 and move == 1 or move == 1 and river[i + 1] == 'B'): continue
+				if(i == 0 and move == 0 or move == 0 and river[i - 1] == 'B'):
+					move = 1
+				elif(i == length - 1 and move == 1 or move == 1 and river[i + 1] == 'B'):
+					move = 0
+				##if(move == 0 and river[i - 1] == 'B'): continue
+				##if(move == 1 and river[i + 1] == 'B'): continue
 				if(river[i + move * 2 - 1] == 0):
 					river[i + move * 2 - 1] = river[i]
 					river[i] = 0
 					stop += move
-				else:
+				elif(river[i + move * 2 - 1] == 'F'):
 					while(free_Position):
 						poz = random.randint(0, length - 1)
 						if (river[poz] == 0):	
