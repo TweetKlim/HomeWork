@@ -1,0 +1,26 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+{% block title %}
+Choose best
+{% endblock %}
+
+{% block content %}
+<h2>Choose best art</h2>
+<div class="row">
+    <form action="{%  url 'home' %}" method="post">
+        {% csrf_token %}
+        <div class="col-xs-12 col-md-5">
+            <input hidden='true' name="id1" value="{{ id1 }}">
+            <input type="image" src="{{ image1 }}" alt='...' class="img-thumbnail" name='win' value="{{ id1 }}">
+        </div>
+        <div class="col-xs-12 col-md-5">
+            <input hidden='true' name="id2" value="{{ id2 }}">
+            <input type="image" src="{{ image2 }}" alt="..." class="img-thumbnail" name='win' value="{{ id2 }}">
+        </div>
+    </form>
+
+
+</div>
+
+{% endblock %}

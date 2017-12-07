@@ -1,0 +1,25 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% block title %}
+Login
+{% endblock %}
+{% block style %}
+<link href='{% static 'content.css' %}' rel='stylesheet'>
+{% endblock %}
+{% block login %}
+    <div class = "form-signin" role="form">
+        <form action="{%  url 'login' %}" method="post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input class="form-control" type="text" name="username" id="username" placeholder="Login" required autofocus>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" required autofocus>
+            {% if login_error %}
+                <lable class="error">{{ login_error }}</lable>
+            {% endif %}
+            <input class="btn btn-default btn-lg btn-block " type="submit" value="Login">
+        </form>
+    </div>
+    <div class = "form-signin" role="form">
+        <a class="btn btn-default btn-lg btn-block " href="{%  url 'registration' %}">Registration</a>
+    </div>
+{% endblock %}
